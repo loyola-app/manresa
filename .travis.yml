@@ -1,9 +1,13 @@
 language: node_js
 
+node_js:
+  - "stable"
+
 dist: trusty
 sudo: true
 
 cache:
+  yarn: true
   directories:
     - .gitmtimecache
     - .eslintcache

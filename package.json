@@ -1,4 +1,5 @@
 {
+  "homepage": "https://badeleux.github.io/loyola/",
   "name": "manresa",
   "version": "0.1.0",
   "private": true,
@@ -27,6 +28,7 @@
     "eslint-plugin-prettier": "2.6.0",
     "eslint-plugin-react": "^7.8.2",
     "flow-bin": "^0.72.0",
-    "prettier": "1.12.1"
+    "prettier": "1.12.1",
+    "uglifyjs-webpack-plugin": "^1.2.5"
   }
 }
