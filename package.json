@@ -1,8 +1,10 @@
 {
+  "homepage": "https://loyola-app.github.io/manresa/",
   "name": "manresa",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "gh-pages": "^1.1.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-scripts": "1.1.4"
@@ -11,7 +13,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint:base": "NODE_ENV=development eslint --cache --cache-location .eslintcache/",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -27,6 +32,7 @@
     "eslint-plugin-prettier": "2.6.0",
     "eslint-plugin-react": "^7.8.2",
     "flow-bin": "^0.72.0",
-    "prettier": "1.12.1"
+    "prettier": "1.12.1",
+    "uglifyjs-webpack-plugin": "^1.2.5"
   }
 }
