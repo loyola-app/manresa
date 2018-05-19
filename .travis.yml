@@ -32,9 +32,7 @@ jobs:
     - stage: test
       script: yarn test
     - stage: test
-      script:
-        - yarn lint:base -- --quiet .
-        - ./travis/check_messages.sh
+      script: yarn lint:base -- . 
     - stage: test
       script: yarn flow check
     - stage: deploy
