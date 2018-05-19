@@ -1,0 +1,41 @@
+language: node_js
+
+dist: trusty
+sudo: true
+
+cache:
+  directories:
+    - .gitmtimecache
+    - .eslintcache
+    - .jestcache
+    - node_modules
+
+env:
+  global:
+    # link to our bundled version yarn
+    - PATH=$TRAVIS_BUILD_DIR/bin:$PATH
+
+stages:
+  - name: test
+  - name: deploy
+    if: "type != pull_request AND branch = master"
+
+# build stages
+jobs:
+  fast_finish: true
+  include:
+    # This is really the compile step but we run in it parallel with the tests anyway
+    - stage: test
+      script: yarn test
+    - stage: test
+      script:
+        - yarn lint:base -- --quiet .
+        - ./travis/check_messages.sh
+    - stage: test
+      script: yarn flow check
+    - stage: deploy
+      provider: pages
+      skip_cleanup: true
+      github_token: $github_token
+      local_dir: build
+
