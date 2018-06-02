@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/header';
+import Welcome from './components/welcome';
+import ReactGlobalStyle from 'react-global-style';
+import Examination from './components/examination';
 
 class App extends Component {
     render() {
         return (
-            <div className="App">
-                <header className="App-header">
-                    <img alt="logo" className="App-logo" src={logo} />
-                    <h1 className="App-title">Welcome to React</h1>
-                </header>
-                <p className="App-intro">
-                    To get started, edit <code>src/App.js</code> and save to reload.
-                </p>
+            <div>
+                <ReactGlobalStyle className={`sans-serif w-100`} />
+                <Header />
+                <Welcome />
+                <Examination />
             </div>
         );
     }
